@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express();
+require('dotenv').config();
 const db = require('./db.js');
 const person = require('./personschema.js');
 const menu=require('./menu.js');
@@ -34,18 +35,18 @@ app.get('/', function (req, res) {
 //         res.status(500).json({ message: "Error fetching items", err });
 //     }
 // })
-app.post('/menuadd',async function(req,res){
-    try{
-        const data=req.body;
-        const newItem=new menu(data);
-        const response = await newItem.save();
-        console.log("Data saved successfully");
-        res.status(200).json(response);
-    }
-    catch(err){
-        res.status(500).json({ message: "Error fetching items", err });
-    }
-})
+// app.post('/menuadd',async function(req,res){
+//     try{
+//         const data=req.body;
+//         const newItem=new menu(data);
+//         const response = await newItem.save();
+//         console.log("Data saved successfully");
+//         res.status(200).json(response);
+//     }
+//     catch(err){
+//         res.status(500).json({ message: "Error fetching items", err });
+//     }
+// })
 // app.get('/person/:worktype',async function(req,res){
 //     try{
 //         const worktyepe=req.params.worktype;
